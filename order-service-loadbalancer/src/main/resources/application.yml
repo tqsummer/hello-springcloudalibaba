@@ -1,0 +1,17 @@
+server:
+  port: 8083
+
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      server-addr: 10.0.0.130:8848
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: public
+    loadbalancer:
+      #关闭netflix的ribbon负载均衡(这里关闭后，就会使用spring cloud loadbalancer的负载均衡，maven依赖中可以不用排除netflix的ribbon包)
+      ribbon:
+        enabled: false
